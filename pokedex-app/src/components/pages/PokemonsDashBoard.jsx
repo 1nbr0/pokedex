@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { getPokemonsById } from '../services/Api'
+import { getPokemons } from '../services/Api'
 import logo from '../../logo.svg'
 import PokemonList from '../pokemonList/PokemonList'
 
@@ -11,12 +11,13 @@ function PokemonsDashBoard () {
   useEffect(() => {
     const getData = async () => {
       setLoading(true)
-      const data = await getPokemonsById()
-      setPokemons(data)
+      const data = await getPokemons()
+      setPokemons(data.results)
       setLoading(false)
     }
     getData()
   }, [])
+  console.log(pokemons);
 
   if (loading) {
     return (

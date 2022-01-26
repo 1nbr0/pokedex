@@ -5,14 +5,14 @@ function PokemonList(props) {
   const { pokemons } = props
   return (
     <div className='list-container'>
-      {/* {
-        pokemons.map(pokemon => {
+      {
+      pokemons.map((pokemon) => {
           return (
-            <PokemonListItem key={pokemon.results} pokemon={pokemon} />
+            <PokemonListItem key={pokemon.name} pokemon={pokemon} />
           )
         })
-      } */}
-      <pre>{JSON.stringify(pokemons, null, 2)}</pre>
+      }
+      {/* <pre>{JSON.stringify(pokemons, null, 2)}</pre> */}
     </div>
   )
 }

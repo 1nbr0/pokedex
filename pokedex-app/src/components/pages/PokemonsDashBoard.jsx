@@ -1,23 +1,50 @@
 import React, { useState, useEffect } from 'react'
-import { getPokemons } from '../services/Api'
+import axios from 'axios'
 import logo from '../../logo.svg'
-import PokemonList from '../pokemonList/PokemonList'
+import { Row, Col } from 'react-bootstrap'
+import Pokemon from '../pokemonList/Pokemon'
 
 function PokemonsDashBoard () {
 
   const [pokemons, setPokemons] = useState([])
   const [loading, setLoading] = useState(false)
+
+  const api = axios.create({
+    baseURL: 'https://pokeapi.co/api/v2',
+    headers: {
+      'Content-Type': 'application/json',
+      Accept: 'application/json'
+    },
+    timeout: 10000
+  })
+
+  const getPokemonsList = async () => {
+    let pokemonArray = [];
+    for (let i = 1; i < 152; i++) {
+      pokemonArray.push(await getPokemonsById(i))
+    }
+    console.log(pokemonArray);
+    setPokemons(pokemonArray)
+    setLoading(false)
+  }
+  
+  const getPokemonsById = async (id) => {
+    try {
+      const res = await api.get(`/pokemon/${id}`)
+      return res
+    } catch (error) {
+      console.error(error)
+    }
+  }
   
   useEffect(() => {
     const getData = async () => {
       setLoading(true)
-      const data = await getPokemons()
-      setPokemons(data.results)
+      getPokemonsList()
       setLoading(false)
     }
     getData()
   }, [])
-  console.log(pokemons);
 
   if (loading) {
     return (
@@ -28,10 +55,21 @@ function PokemonsDashBoard () {
   }
 
   return (
-    <div>
+    <div className='app-container'>
       <h1>Pokemons DashBoard</h1>
-      <PokemonList pokemons={pokemons} />
-      {/* <pre>{JSON.stringify(pokemons, null, 2)}</pre> */}
+      <div className="pokemon-container">
+        <div className="all-container">
+          {pokemons.map((pokemon, index) => (
+              <Pokemon 
+              id={pokemon.data.id}
+              name={pokemon.data.name}
+              image={pokemon.data.sprites.other.dream_world.front_default}
+              type={pokemon.data.types[0].type.name}
+              key={index}
+              />
+          ))}
+        </div>
+      </div>
     </div>
   )
 }

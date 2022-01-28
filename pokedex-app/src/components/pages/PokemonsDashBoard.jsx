@@ -23,7 +23,8 @@ function PokemonsDashBoard () {
     for (let i = 1; i < 152; i++) {
       pokemonArray.push(await getPokemonsById(i))
     }
-    console.log(pokemonArray);
+    console.log(pokemonArray)
+    setLoading(true)
     setPokemons(pokemonArray)
     setLoading(false)
   }
@@ -39,9 +40,7 @@ function PokemonsDashBoard () {
   
   useEffect(() => {
     const getData = async () => {
-      setLoading(true)
       getPokemonsList()
-      setLoading(false)
     }
     getData()
   }, [])

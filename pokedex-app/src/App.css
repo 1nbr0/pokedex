@@ -1,4 +1,10 @@
+h1 {
+  letter-spacing: 3px;
+}
+
 .App {
+  background: #efefbb;
+  background: linear-gradient(to right, #d4d3dd, #efefbb);
   text-align: center;
 }
 

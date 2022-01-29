@@ -5,3 +5,44 @@
   justify-content: space-between;
   align-items: center;
 }
+
+.pokemon {
+  background-color: #eee;
+  border-radius: 10px;
+  box-shadow: 0 3px 15px rgba(100, 100, 100, 0.5);
+  margin: 10px;
+  padding: 20px;
+}
+
+.pokemon .link-card {
+  text-decoration: none;
+  color: black;
+}
+
+.pokemon .img-container {
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 50%;
+  width: 160px;
+  height: 160px;
+}
+
+.pokemon .img-container img {
+  max-width: 50%;
+  margin-top: 35px;
+}
+
+.pokemon .info {
+  margin-top: 20px;
+}
+
+.pokemon .info .number {
+  background-color: rgba(0, 0, 0, 0.1);
+  padding: 5px 10px;
+  border-radius: 10px;
+  font-size: 0.8em;
+}
+
+.pokemon .info .name {
+  margin: 15px 0 7px;
+  letter-spacing: 1px;
+}

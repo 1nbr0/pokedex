@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import logo from '../../logo.svg'
-import { Row, Col } from 'react-bootstrap'
-import Pokemon from '../pokemonList/Pokemon'
+import Pokemon from '../pokemonList/PokemonCard'
+import './pokemonDashBoard.css'
 
 function PokemonsDashBoard () {
 
@@ -23,7 +23,6 @@ function PokemonsDashBoard () {
     for (let i = 1; i < 152; i++) {
       pokemonArray.push(await getPokemonsById(i))
     }
-    console.log(pokemonArray)
     setLoading(true)
     setPokemons(pokemonArray)
     setLoading(false)
@@ -48,14 +47,14 @@ function PokemonsDashBoard () {
   if (loading) {
     return (
       <div>
-        <img src={logo} className='App-logo' alt='logo' />
+        <img src={logo} className='App-logo' alt='logo' /> Fetching Pokemon
       </div>
     )
   }
 
   return (
     <div className='app-container'>
-      <h1>Pokemons DashBoard</h1>
+      <h1>PokeDex</h1>
       <div className="pokemon-container">
         <div className="all-container">
           {pokemons.map((pokemon, index) => (

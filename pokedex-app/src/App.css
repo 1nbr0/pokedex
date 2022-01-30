@@ -3,8 +3,6 @@ h1 {
 }
 
 .App {
-  background: #efefbb;
-  background: linear-gradient(to right, #d4d3dd, #efefbb);
   text-align: center;
 }
 

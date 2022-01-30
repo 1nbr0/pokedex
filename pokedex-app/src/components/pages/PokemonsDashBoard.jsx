@@ -7,7 +7,7 @@ import './pokemonDashBoard.css'
 function PokemonsDashBoard () {
 
   const [pokemons, setPokemons] = useState([])
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(true)
 
   const api = axios.create({
     baseURL: 'https://pokeapi.co/api/v2',

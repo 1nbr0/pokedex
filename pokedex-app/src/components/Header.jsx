@@ -1,24 +1,25 @@
-import { Navbar, Container, Nav } from 'react-bootstrap'
-import logo from '../../src/logo.svg'
+import { Navbar, Container } from "react-bootstrap";
+import logo from "../../src/logo.svg";
 
-function Header () {
+function Header() {
   return (
     <header>
-      <Navbar bg='dark' variant='dark' expand='lg'>
+      <Navbar bg="dark" variant="dark" expand="lg">
         <Container>
-          <Navbar.Brand href='/'>
+          <Navbar.Brand href="/">
             <img
-              alt=''
+              alt=""
               src={logo}
-              width='30'
-              height='30'
-              className='d-inline-block align-top App-logo-nav'
-            />{' '}PokeDex
+              width="30"
+              height="30"
+              className="d-inline-block align-top App-logo-nav"
+            />{" "}
+            PokeDex
           </Navbar.Brand>
         </Container>
       </Navbar>
     </header>
-  )
+  );
 }
 
-export default Header
+export default Header;

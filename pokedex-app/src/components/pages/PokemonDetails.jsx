@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import React from 'react'
 import logo from '../../logo.svg'
 import { useState, useEffect } from 'react'
